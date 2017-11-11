@@ -34,6 +34,13 @@ public struct ChatCollectionViewLayoutModel {
     public let layoutAttributesBySectionAndItem: [[UICollectionViewLayoutAttributes]]
     public let calculatedForWidth: CGFloat
 
+    public init(contentSize: CGSize, layoutAttributes: [UICollectionViewLayoutAttributes], layoutAttributesBySectionAndItem: [[UICollectionViewLayoutAttributes]], calculatedForWidth: CGFloat) {
+        self.contentSize = contentSize
+        self.layoutAttributes = layoutAttributes
+        self.layoutAttributesBySectionAndItem = layoutAttributesBySectionAndItem
+        self.calculatedForWidth = calculatedForWidth
+    }
+
     public static func createModel(_ collectionViewWidth: CGFloat, itemsLayoutData: [(height: CGFloat, bottomMargin: CGFloat)]) -> ChatCollectionViewLayoutModel {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         var layoutAttributesBySectionAndItem = [[UICollectionViewLayoutAttributes]]()
