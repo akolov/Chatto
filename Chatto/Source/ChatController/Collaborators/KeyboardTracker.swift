@@ -24,7 +24,7 @@
 
 import Foundation
 
-class KeyboardTracker {
+public class KeyboardTracker {
 
     private enum KeyboardStatus {
         case hidden
@@ -52,10 +52,10 @@ class KeyboardTracker {
     var inputContainer: UIView
     private var notificationCenter: NotificationCenter
 
-    typealias LayoutBlock = (_ bottomMargin: CGFloat) -> Void
+    public typealias LayoutBlock = (_ bottomMargin: CGFloat) -> Void
     private var layoutBlock: LayoutBlock
 
-    init(viewController: UIViewController, inputContainer: UIView, layoutBlock: @escaping LayoutBlock, notificationCenter: NotificationCenter) {
+    public init(viewController: UIViewController, inputContainer: UIView, layoutBlock: @escaping LayoutBlock, notificationCenter: NotificationCenter) {
         self.view = viewController.view
         self.layoutBlock = layoutBlock
         self.inputContainer = inputContainer
@@ -70,11 +70,11 @@ class KeyboardTracker {
         self.notificationCenter.removeObserver(self)
     }
 
-    func startTracking() {
+    public func startTracking() {
         self.isTracking = true
     }
 
-    func stopTracking() {
+    public func stopTracking() {
         self.isTracking = false
     }
 
@@ -131,7 +131,7 @@ class KeyboardTracker {
         return max(0, self.view.bounds.height - trackingViewRect.maxY)
     }
 
-    func adjustTrackingViewSizeIfNeeded() {
+    public func adjustTrackingViewSizeIfNeeded() {
         guard self.isTracking && self.keyboardStatus == .shown else { return }
         self.adjustTrackingViewSize()
     }
@@ -152,7 +152,7 @@ class KeyboardTracker {
     }
 
     var isPerformingForcedLayout: Bool = false
-    func layoutInputAtTrackingViewIfNeeded() {
+    public func layoutInputAtTrackingViewIfNeeded() {
         guard self.isTracking && self.keyboardStatus == .shown else { return }
         self.layoutInputContainer(withBottomConstraint: self.bottomConstraintFromTrackingView())
     }
