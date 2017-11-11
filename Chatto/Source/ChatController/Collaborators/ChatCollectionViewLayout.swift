@@ -72,7 +72,7 @@ public struct ChatCollectionViewLayoutModel {
 }
 
 open class ChatCollectionViewLayout: UICollectionViewLayout {
-    var layoutModel: ChatCollectionViewLayoutModel!
+    public var layoutModel: ChatCollectionViewLayoutModel!
     public weak var delegate: ChatCollectionViewLayoutDelegate?
 
     // Optimization: after reloadData we'll get invalidateLayout, but prepareLayout will be delayed until next run loop.
